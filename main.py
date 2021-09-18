@@ -1,6 +1,8 @@
 import re
 from pprint import pprint
 import csv
+from decorator import decorator
+
 pattern_phone = '(8|\+7)?\s*(\(*)(\d{3})(\)*)(\s*|-)(\d{3})(\s*|-)(\d{2})(\s*|-)(\d{2})\s*(\(*)(\w\w\w\.)*\s*(\d{4})*(\))*'
 sub_phone = r'+7(\3)\6-\8-\10 \12\13'
 
@@ -23,7 +25,7 @@ def form_phone():
         new_contact.append(contact[6])
         form_phone.append(new_contact)
     return form_phone
-
+@decorator
 def new_phone_book():
     phone_dict = {}
     for contact in form_phone():
