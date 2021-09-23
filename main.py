@@ -1,7 +1,9 @@
 import re
 from pprint import pprint
 import csv
-from decorator import decorator
+from decorator import parametr_dec
+
+path = r"C:\Users\mrdik\Desktop\Progs\Les_4_HW_4\Block_4_HW_2_regular/"
 
 pattern_phone = '(8|\+7)?\s*(\(*)(\d{3})(\)*)(\s*|-)(\d{3})(\s*|-)(\d{2})(\s*|-)(\d{2})\s*(\(*)(\w\w\w\.)*\s*(\d{4})*(\))*'
 sub_phone = r'+7(\3)\6-\8-\10 \12\13'
@@ -25,7 +27,7 @@ def form_phone():
         new_contact.append(contact[6])
         form_phone.append(new_contact)
     return form_phone
-@decorator
+@parametr_dec(path)
 def new_phone_book():
     phone_dict = {}
     for contact in form_phone():
